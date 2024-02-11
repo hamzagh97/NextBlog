@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "comfortaa";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.sun-editor .se-toolbar {
+  padding: 0 2.8rem !important;
+  outline: 0px !important;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.sun-editor .se-wrapper {
+  /* width: 100% !important; */
+  padding: 0 2.8rem !important;
+}
+
+.sun-editor {
+  border: none !important;
+}
+
+.se-placeholder {
+  font-size: 14px !important;
+  color: black !important;
+  padding-left: 3.8rem !important;
 }
