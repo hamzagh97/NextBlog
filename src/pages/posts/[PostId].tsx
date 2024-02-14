@@ -14,7 +14,7 @@ const PostId = (props: any) => {
   const [commentId, setCommentId] = useState("");
   const params = useParams();
   const session = useSession();
-  console.log(props.post.comments);
+  // console.log(props.post.comments);
 
   const router = useRouter();
   const postId = router.query.PostId;
@@ -124,13 +124,13 @@ const PostId = (props: any) => {
         </div>
         <div className="mx-auto my-10 max-w-3xl space-y-6 rounded-lg bg-white p-8">
           <AddComment postId={postId} userId={userId} />
-          {/* <Comments
+          <Comments
             comments={props.post.comments}
             setCommentId={setCommentId}
             showModalHandle={showDeleteCommentModalHandle}
             userId={userId}
             postId={postId}
-          /> */}
+          />
         </div>
       </>
       {/* )} */}

@@ -2,6 +2,11 @@ import profilImage from "../../../public/images/profil image.webp";
 // import { useNavigate } from "react-router-dom";
 // import { useParams } from "react-router-dom";
 import Image from "next/image";
+import api from "@/api/api";
+import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 const Comments = ({
   comments,
@@ -10,12 +15,27 @@ const Comments = ({
   userId,
   postId,
 }) => {
+  // console.log(comments);
   //   const userId = context.user._id;
   //   const navigate = useNavigate();
   //   const params = useParams();
   //   const postId = params.postId;
+  // const session = await getSession(context);
+  const [postComments, setPostComments] = useState([]);
 
-  return comments.map((comment, i) => {
+  useEffect(() => {
+    const getComments = async () => {
+      await axios
+        .get(`http://localhost:5000/posts/${postId}/comments`)
+        .then((res) => {
+          setPostComments(res.data);
+        });
+    };
+
+    getComments();
+  }, [postId]);
+
+  return postComments.map((comment, i) => {
     return (
       <div className="flex w-full space-x-4" key={i}>
         <Image
